@@ -1,0 +1,32 @@
+def makeAnagram(str_1,str_2):
+    alphabets = 'abcdefghijklmnopqrstuvwxyz'
+    nums =[i for i in range(0,27)]
+    map = dict(zip(alphabets, nums))
+    n= 26
+    str_1_array = [0]*n
+    str_2_array = [0]*n
+  
+    for char in str_1:
+        char_index_1 = map[char]
+        str_1_array[char_index_1]= str_1_array[char_index_1] +1
+    print("str_1_array = ",str_1_array)
+
+    for char in str_2:
+        char_index_2 = map[char]
+        str_2_array[char_index_2]= str_2_array[char_index_2] +1
+    print("str_2_array=",str_2_array)
+
+    result = 0
+    for i in range(26):
+        abs_diff  = abs(str_1_array[i] - str_2_array[i])
+        result = result + abs_diff
+    return result   
+
+
+str_1=  "astring"
+
+str_2= "anotherstring"
+makeAnagram(str_1,str_2)
+
+
+
